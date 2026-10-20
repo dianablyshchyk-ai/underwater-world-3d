@@ -318,7 +318,7 @@ const floorMaterial = new THREE.MeshStandardMaterial({
     vertexColors: true,
     roughness: 1,
     metalness: 0,
-    ...loadPbrMaps('/sand/aerial_beach_01_1k.blend', 'aerial_beach_01', 'jpg', 12),
+    ...loadPbrMaps('./sand/aerial_beach_01_1k.blend', 'aerial_beach_01', 'jpg', 12),
 })
 addCaustics(floorMaterial)
 const floor = new THREE.Mesh(floorGeometry, floorMaterial)
@@ -386,12 +386,12 @@ const kelpMaterials = [
     new THREE.MeshStandardMaterial({
         color: 0xffffff,
         roughness: 0.7,
-        ...loadPbrMaps('/algae/concrete_moss_1k.blend', 'concrete_moss', 'exr'),
+        ...loadPbrMaps('./algae/concrete_moss_1k.blend', 'concrete_moss', 'exr'),
     }),
     new THREE.MeshStandardMaterial({
         color: 0xffffff,
         roughness: 0.7,
-        ...loadPbrMaps('/algae/moss_wood_1k.blend', 'moss_wood'),
+        ...loadPbrMaps('./algae/moss_wood_1k.blend', 'moss_wood'),
     }),
 ]
 
@@ -461,13 +461,13 @@ const rockMaterials = [
         color: 0xffffff,
         roughness: 1,
         flatShading: true,
-        ...loadPbrMaps('/stone/stone1_1k.blend', 'marble_cliff_05', 'exr'),
+        ...loadPbrMaps('./stone/stone1_1k.blend', 'marble_cliff_05', 'exr'),
     }),
     new THREE.MeshStandardMaterial({
         color: 0xffffff,
         roughness: 1,
         flatShading: true,
-        ...loadPbrMaps('/stone/seaside_rock_1k.blend', 'seaside_rock', 'exr'),
+        ...loadPbrMaps('./stone/seaside_rock_1k.blend', 'seaside_rock', 'exr'),
     }),
 ]
 
@@ -544,12 +544,12 @@ function createOutcrop(x, z) {
 const coralColors = [0xff3d8b, 0xff7a1a, 0x19e6d0, 0xff5a3d, 0xb04dff, 0xffd23d]
 const spongeNormalMap = loadPbrTexture(
     textureLoader,
-    '/corals/Sponge001_1K-JPG/Sponge001_1K-JPG_NormalGL.jpg',
+    './corals/Sponge001_1K-JPG/Sponge001_1K-JPG_NormalGL.jpg',
     { repeat: 0.7 }
 )
 const spongeRoughnessMap = loadPbrTexture(
     textureLoader,
-    '/corals/Sponge001_1K-JPG/Sponge001_1K-JPG_Roughness.jpg',
+    './corals/Sponge001_1K-JPG/Sponge001_1K-JPG_Roughness.jpg',
     { repeat: 0.7 }
 )
 spongeNormalMap.repeat.set(0.7, 0.7)
@@ -717,11 +717,11 @@ for (let i = 0; i < 48; i++) {
 const woodMaterial = new THREE.MeshStandardMaterial({
     color: 0xffffff,
     roughness: 0.85,
-    ...loadPbrMaps('/coffer/plank_flooring_04_1k.blend', 'plank_flooring_04', 'exr', 2),
+    ...loadPbrMaps('./coffer/plank_flooring_04_1k.blend', 'plank_flooring_04', 'exr', 2),
 })
 
 function loadCofferMetalMaps(name, repeat = 2) {
-    const directory = `/coffer/${name}_1K-JPG/${name}_1K-JPG`
+    const directory = `./coffer/${name}_1K-JPG/${name}_1K-JPG`
     return {
         map: loadPbrTexture(textureLoader, `${directory}_Color.jpg`, { color: true, repeat }),
         normalMap: loadPbrTexture(textureLoader, `${directory}_NormalGL.jpg`, { repeat }),
@@ -851,14 +851,14 @@ function createShipwreck() {
         color: 0x30241b,
         roughness: 1,
         flatShading: true,
-        ...loadPbrMaps('/ship/rough_wood_1k.blend', 'rough_wood'),
+        ...loadPbrMaps('./ship/rough_wood_1k.blend', 'rough_wood'),
     })
     const deckMaterial = new THREE.MeshStandardMaterial({
         color: 0xffffff,
         roughness: 1,
-        ...loadPbrMaps('/ship/plank_flooring_03_1k.blend', 'plank_flooring_03', 'exr', 2),
+        ...loadPbrMaps('./ship/plank_flooring_03_1k.blend', 'plank_flooring_03', 'exr', 2),
     })
-    const mastMaps = loadPbrMaps('/ship/knotted_pine_bark_1k.blend', 'knotted_pine_bark', 'exr')
+    const mastMaps = loadPbrMaps('./ship/knotted_pine_bark_1k.blend', 'knotted_pine_bark', 'exr')
     const plankMaterial = new THREE.MeshStandardMaterial({
         color: 0xffffff,
         roughness: 1,
@@ -872,7 +872,7 @@ function createShipwreck() {
     const barrelMaterial = new THREE.MeshStandardMaterial({
         color: 0xffffff,
         roughness: 1,
-        ...loadPbrMaps('/ship/wooden_gate_1k.blend', 'wooden_gate', 'exr'),
+        ...loadPbrMaps('./ship/wooden_gate_1k.blend', 'wooden_gate', 'exr'),
     })
     const sailMaterial = new THREE.MeshStandardMaterial({
         color: 0xffffff,
@@ -880,7 +880,7 @@ function createShipwreck() {
         side: THREE.DoubleSide,
         transparent: true,
         opacity: 0.85,
-        ...loadPbrMaps('/ship/curly_teddy_natural_1k.blend', 'curly_teddy_natural', 'exr'),
+        ...loadPbrMaps('./ship/curly_teddy_natural_1k.blend', 'curly_teddy_natural', 'exr'),
     })
     for (const m of [hullMaterial, deckMaterial, plankMaterial, mastMaterial, barrelMaterial]) addCaustics(m)
 
@@ -1316,18 +1316,18 @@ function loadFishTextureMaps(basePath, files, repeat = 2) {
 
 const fishTextureMaps = {
     redPlastic: loadFishTextureMaps(
-        '/fish/plastic_0002_1k_UBw2zj/plastic_0002',
+        './fish/plastic_0002_1k_UBw2zj/plastic_0002',
         { color: 'color_1k.jpg', normal: 'normal_opengl_1k.png', roughness: 'roughness_1k.jpg' }
     ),
     leather038: loadFishTextureMaps(
-        '/fish/Leather038_1K-JPG/Leather038_1K-JPG',
+        './fish/Leather038_1K-JPG/Leather038_1K-JPG',
         { color: 'Color.jpg', normal: 'NormalGL.jpg', roughness: 'Roughness.jpg' }
     ),
     leather035D: loadFishTextureMaps(
-        '/fish/Leather035D_1K-JPG/Leather035D_1K-JPG',
+        './fish/Leather035D_1K-JPG/Leather035D_1K-JPG',
         { color: 'Color.jpg', normal: 'NormalGL.jpg', roughness: 'Roughness.jpg' }
     ),
-    biStretch: loadPbrMaps('/fish/bi_stretch_1k.blend', 'bi_stretch', 'exr', 2),
+    biStretch: loadPbrMaps('./fish/bi_stretch_1k.blend', 'bi_stretch', 'exr', 2),
 }
 
 function createProceduralFishMesh(speciesId) {

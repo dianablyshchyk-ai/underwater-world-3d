@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://dianablyshchyk-ai.github.io/underwater-world-3d/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
